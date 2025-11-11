@@ -2,6 +2,8 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 
+import './bases/01-const-let';
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
