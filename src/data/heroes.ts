@@ -7,7 +7,7 @@ export interface Hero{
 
 export type Owner = 'DC' | 'Marvel';
 
-const heroes = [
+const heroes: Hero[] = [
     {
         id: 1,
         name: 'Batman',
