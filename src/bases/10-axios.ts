@@ -12,6 +12,6 @@ export const giphyAPI = axios.create({
 
 // export default giphyApi
 
-giphyAPI.get<GIFResponse>('/random')
-    .then(resp => console.log(resp.data.data.images.downsized_medium.url))
-    .catch(err => console.log(err));
+//giphyAPI.get<GIFResponse>('/random')
+//    .then(resp => console.log(resp.data.data.images.downsized_medium.url))
+//    .catch(err => console.log(err));
