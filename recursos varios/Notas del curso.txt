@@ -1,0 +1,187 @@
+Notas Vue::
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+Revisar la página de Tailwind components ("https://www.creative-tim.com/twcomponents") para buscar componentes de tailwind públicos ya creados por la comunidad
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+Usando vue desde CDN (sin instalar nada):
+Se debe incluir el siguiente script en el html:
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+Instalación recomendada
+
+posicionando la terminal dentro de la carpeta en la que se desea instalar, se ejecuta el comando:
+
+	npm install vue
+
+luego
+
+página Giphy:
+https://developers.giphy.com/docs/api/endpoint/
+
+Extensiones para VS Code que tienen que ver con el uso de Vue:
+https://marketplace.visualstudio.com/items?itemName=Vue.volar
+https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets
+https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+
+--------------------------------------------------------
+<<<< Sección 4 Vue + vite - Single-File Components >>>>
+--------------------------------------------------------
+
+Comando para iniciar un proyecto con Vue:
+
+	npm create vue@latest
+
+Configuraciones adicionales al ejecutar el comando anterior:
+
+✔ Project name: … <your-project-name>
+✔ Add TypeScript? … No / Yes [pref yes]
+✔ Add JSX Support? … No / Yes [pref no]
+✔ Add Vue Router for Single Page Application development? … No / Yes [pref no]
+✔ Add Pinia for state management? … No / Yes [pref no]
+✔ Add Vitest for Unit testing? … No / Yes [pref no]
+✔ Add an End-to-End Testing Solution? … No / Cypress / Nightwatch / Playwright [pref no]
+✔ Add ESLint for code quality? … No / Yes [pref yes]
+✔ Add Prettier for code formatting? … No / Yes [pref yes]
+✔ Add Vue DevTools 7 extension for debugging? (experimental) … No / Yes [pref yes]
+
+Scaffolding project in ./<your-project-name>...
+Done.
+
+Luego se debe ingresar a la carpeta que se creó (Tiene el nombre del 'Project name' indicado previamente. si se desea cambiar el nombre de dicha carpeta, ahora es el momento de hacerlo)
+
+y finalmente dentro de dicha carpeta se ejecuta el comando:
+	
+	npm install
+
+ctrl+shift+p -> Developer: Reload window
+sirve para hacer un refresh del editor vscode
+
+<script lang="ts" setup> se le conoce como Script Setup (la parte de "lang="ts" es opcional)
+
+import default defineComponent({
+
+)}
+
+Es el cuerpo principal de la parte de Javascript de un componente tradicional de vue (se debe de importar de vue con "import { defineComponent } from 'vue';")
+
+Se les conoce como "Composable function" a un archivo en el que se separa la lógica del componente tradicional (el script) y es importado por el componente tradicional (en el cual solo se conserva la parte HTML de componente. el siguiente es un ejemplo de importación de un composable function en el componente tradicional:
+
+	<script lang="ts" src="./NombreDelComposableFunction">
+
+Ahora es en el composable function donde se define el defineComponent anteriormente mencionado
+
+
+
+npm run build - comando que sirve para crear los archivos que se deben subir a producción
+(un servidor web), los crea dentro de una carpeta llamada dist (distribución)
+
+composable functions: lugar donde se agrupa toda la lógica de los componentes
+
+--------------------------------------------------------
+<<<< Sección 5 Indecision App - Continuación >>>>
+--------------------------------------------------------
+
+Tailwind components - chat layout:
+https://www.creative-tim.com/twcomponents/component/chat-layout
+
+repasandoCSS
+
+para instalar Tailwind:
+
+se ejecuta en la carpeta del proyecto el comando:
+
+	npm install tailwindcss @tailwindcss/vite
+
+Luego se debe modificar el archivo "vite.config.ts" agregando las líneas que están entre doble asterisco (sin agregar los asteriscos) a continuación:
+
+	import { defineConfig } from 'vite'
+	**import tailwindcss from '@tailwindcss/vite'**
+	export default defineConfig({
+	  plugins: [
+	    **tailwindcss(),**
+	  ],
+	})
+
+luego en el archivo de la hoja de estilos (generalmente styles.css o main.css) se debe agregar el siguiente import:
+
+	@import "tailwindcss";
+
+Para más info consultar la siguiente liga:
+	
+https://tailwindcss.com/docs/installation/using-vite
+
+Nota importante respecto al @apply de Tailwind:
+
+Si se desea usar @apply (o @variant) en la etiqueta <style> de un componente Vue o dentro de módulos CSS, necesitarás importar las variables de tema, utilidades personalizadas y variantes personalizadas para que esos valores estén disponibles en ése contexto
+
+para hacer eso sin duplicar ningún estilo CSS en la salida, se debe usar la directiva @reference para importar la hoja de estilos principal como referencia sin incluir realmente los estilos:
+
+<style>
+  @reference "../../app.css";
+
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+
+Si solo está utilizando el tema predeterminado sin personalizaciones, puede importar "tailwindcss" directamente:
+
+<style>
+  @reference "tailwindcss";
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+
+Para más información consultar:
+
+https://tailwindcss.com/docs/functions-and-directives#reference-directive
+
+Se usa el siguiente comando para instalar axios dentro de la carpeta del proyecto:
+
+	npm install axios
+--
+Pag de Vue Router
+	
+	https://router.vuejs.org/
+
+Pag para buscar íconos en formato .svg:
+
+https://www.svgrepo.com/
+
+----
+
+secc 7
+secc 9
+secc 16
+
+
+Investigar ANGULAR
+buscar clean architecture
+
+Instalación de Vue en un proyecto:
+
+npm create vue@latest
+
+Instalación de Tailwind en un proyecto: 
+
+	https://tailwindcss.com/docs/installation/using-vite
+
+Instalación de DaisyUI en un proyecto:
+
+	https://daisyui.com/docs/install/
+
+Instalación conjunta de tailwind y daisyui con Vite:
+
+	https://daisyui.com/docs/install/vite/
+
+el comando npm para lo anterior es: 
+
+npm install tailwindcss@latest @tailwindcss/vite@latest daisyui@latest
+
+Página para sacar íconos .svg:
+
+	https://www.svgrepo.com/svg/528844/archive-minimalistic
+
+daniel shiffman
